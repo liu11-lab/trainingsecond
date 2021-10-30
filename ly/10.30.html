@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>picture-scroll</title>
+</head>
+<style>
+body{
+    background-color: cornsilk;
+}
+p{
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: rgb(31, 209, 105);
+    font-family: 'Times New Roman', Times, serif;
+}
+.imgbox{
+    /* margin-left:20% ;
+    margin-right: 20%; */
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: cornflowerblue;
+    border-width: 4px;
+    border-style: dotted;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px 10px rgb(137, 159, 207);
+    width: 800px;
+    height: 600px;
+}
+.imgbox img{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin-left: 10px;
+    margin-right: 10px;
+    width:780px;
+    height: 580px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.img1{
+    /* display: none; */
+}
+.img2{
+    display: none;
+}
+.img3{
+    display: none;
+}
+.img4{
+    display: none;
+}
+</style>
+<script>
+    var index=0;
+    function changeimg() {
+        index++;
+        var a=document.getElementsByClassName("img-slide");
+        index%=a.length;
+        for(var i=0;i<a.length;i++){
+            a[i].style.display='none';
+        }
+        a[index].style.display='block';
+    }   
+    setInterval(changeimg,3000);
+
+</script>
+<body>
+    <p><b>轮播图片</b></p>
+    <div class="imgbox" onclick="changeimg()">
+        <img class="img-slide img1" src="i/image1.jpeg" alt="1">
+        <img class="img-slide img2" src="i/image2.jpeg" alt="2">
+        <img class="img-slide img3" src="i/image3.jpeg" alt="3">
+        <img class="img-slide img4" src="i/image4.jpeg" alt="4">
+    </div>
+</body>
+</html>
