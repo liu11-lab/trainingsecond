@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #8EC5FC;
+background-image: linear-gradient(257deg, #8EC5FC 0%, #E0C3FC 100%);
+
+        }
+        #big-box {
+            width: 600px;
+            height: 600px;
+            background-image: url(images/1.jpg);
+            background-size: 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow:  1px 1px #2f2f2f;
+            border-radius: 24px;
+        }
+        #icon-l {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            background-image: url(images/icon-l.png);
+            display: none;
+        }
+        #icon-r {
+            width: 50px;
+            height: 50px;
+            background-image: url(images/icon-r.png);
+            background-size: cover;
+            display: none;
+        }
+        .put-icon {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 30%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="big-box" onmouseover="over()" onmouseout="out()">
+        <div class="put-icon">
+        <div id="icon-l" onclick="c1()"></div>
+        <div id="icon-r" onclick="c2()"></div>
+        </div>
+    </div>
+<script>
+    var n=1;
+    function c1(){
+        if (n==1){
+            n=4
+        }else{
+            n=n-1
+        }
+    
+    document.getElementById('big-box').style.backgroundImage='url(images/'+n+'.jpg)'
+}
+    function c2(){
+        if (n<4){
+            n++
+        }else{
+            n=1
+        }
+        document.getElementById('big-box').style.backgroundImage='url(images/'+n+'.jpg)'
+    }
+    function over(){
+        document.getElementById("icon-l").style.display="block";
+        document.getElementById("icon-r").style.display="block";
+    }
+    function out(){
+        document.getElementById("icon-l").style.display="none";
+        document.getElementById("icon-r").style.display="none";
+    }
+</script>
+    </body>
+</html>
